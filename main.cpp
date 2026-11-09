@@ -172,10 +172,7 @@ bool sprite_overlap_check(
     const Sprite& sp_b, size_t x_b, size_t y_b
 )
 {
-    // NOTE: For simplicity we just check for overlap of the sprite
-    // rectangles. Instead, if the rectangles overlap, we should
-    // further check if any pixel of sprite A overlap with any of
-    // sprite B.
+    
     if(x_a < x_b + sp_b.width && x_a + sp_a.width > x_b &&
        y_a < y_b + sp_b.height && y_a + sp_a.height > y_b)
     {
@@ -817,8 +814,6 @@ int main(int argc, char* argv[])
                     --game.player.life;
                     game.bullets[bi] = game.bullets[game.num_bullets - 1];
                     --game.num_bullets;
-                    //NOTE: The rest of the frame is still going to be simulated.
-                    //perhaps we need to check if the game is over or not.
                     break;
                 }
             }
